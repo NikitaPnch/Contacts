@@ -61,7 +61,7 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
                     etPhoneNumber.text.toString()
                 )
             )
-            router.replaceScreen(ContactsScreen())
+            router.navigateTo(ContactsScreen())
         }
     }
 
