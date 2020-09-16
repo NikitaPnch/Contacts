@@ -1,6 +1,6 @@
 package com.nikpnch.contacts.data
 
-import com.nikpnch.contacts.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
 
 class ContactsInteractor(private val repository: ContactsRepository) {
     fun getAllContacts() = repository.getAllContacts()

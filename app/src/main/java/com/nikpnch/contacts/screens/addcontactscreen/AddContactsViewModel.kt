@@ -1,10 +1,10 @@
-package com.nikpnch.contacts.addcontactscreen
+package com.nikpnch.contacts.screens.addcontactscreen
 
 import android.util.Log
 import com.nikpnch.contacts.base.BaseViewModel
 import com.nikpnch.contacts.base.Event
-import com.nikpnch.contacts.contactsscreen.ui.model.ContactsModel
 import com.nikpnch.contacts.data.ContactsInteractor
+import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.*

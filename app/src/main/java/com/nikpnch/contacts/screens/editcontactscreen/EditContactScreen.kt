@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.editcontactscreen
+package com.nikpnch.contacts.screens.editcontactscreen
 
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen

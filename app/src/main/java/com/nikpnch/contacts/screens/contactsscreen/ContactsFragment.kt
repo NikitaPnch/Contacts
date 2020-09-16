@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen
+package com.nikpnch.contacts.screens.contactsscreen
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.nikpnch.contacts.R
-import com.nikpnch.contacts.addcontactscreen.AddContactScreen
 import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
-import com.nikpnch.contacts.editcontactscreen.EditContactScreen
+import com.nikpnch.contacts.screens.addcontactscreen.AddContactScreen
+import com.nikpnch.contacts.screens.editcontactscreen.EditContactScreen
 import com.nikpnch.contacts.setAdapterAndCleanupOnDetachFromWindow
 import com.nikpnch.contacts.setData
 import kotlinx.android.synthetic.main.fragment_contacts.*

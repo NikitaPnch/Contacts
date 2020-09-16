@@ -1,13 +1,13 @@
 package com.nikpnch.contacts.di
 
 import androidx.room.Room
-import com.nikpnch.contacts.addcontactscreen.AddContactsViewModel
-import com.nikpnch.contacts.contactsscreen.ContactsViewModel
 import com.nikpnch.contacts.data.ContactsInteractor
 import com.nikpnch.contacts.data.ContactsRepository
 import com.nikpnch.contacts.data.ContactsRepositoryImpl
 import com.nikpnch.contacts.data.local.ContactsDatabase
-import com.nikpnch.contacts.editcontactscreen.EditContactViewModel
+import com.nikpnch.contacts.screens.addcontactscreen.AddContactsViewModel
+import com.nikpnch.contacts.screens.contactsscreen.ContactsViewModel
+import com.nikpnch.contacts.screens.editcontactscreen.EditContactViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named

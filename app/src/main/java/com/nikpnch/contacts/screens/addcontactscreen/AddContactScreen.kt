@@ -1,11 +1,11 @@
-package com.nikpnch.contacts.contactsscreen
+package com.nikpnch.contacts.screens.addcontactscreen
 
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
-class ContactsScreen : SupportAppScreen() {
+class AddContactScreen : SupportAppScreen() {
 
     override fun getFragment(): Fragment? {
-        return ContactsFragment.newInstance()
+        return AddContactFragment.newInstance()
     }
 }

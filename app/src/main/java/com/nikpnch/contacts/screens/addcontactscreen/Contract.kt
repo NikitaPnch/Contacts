@@ -1,7 +1,7 @@
-package com.nikpnch.contacts.addcontactscreen
+package com.nikpnch.contacts.screens.addcontactscreen
 
 import com.nikpnch.contacts.base.Event
-import com.nikpnch.contacts.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
 
 data class ViewState(
     val status: STATUS,

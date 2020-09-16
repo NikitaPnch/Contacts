@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen
+package com.nikpnch.contacts.screens.contactsscreen
 
 import android.util.Log
 import com.nikpnch.contacts.base.BaseViewModel
