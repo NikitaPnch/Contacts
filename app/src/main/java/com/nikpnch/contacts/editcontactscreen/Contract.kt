@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.addcontactscreen.ui
+package com.nikpnch.contacts.editcontactscreen
 
 import com.nikpnch.contacts.base.Event
 import com.nikpnch.contacts.contactsscreen.ui.model.ContactsModel
@@ -8,14 +8,8 @@ data class ViewState(
     val contactModel: ContactsModel?
 )
 
-sealed class UiEvent() : Event {
-    data class OnSaveContactClick(
-        val image: String,
-        val name: String,
-        val phoneNumber: String
-    ) : UiEvent()
-
-    data class OnEditContactClick(
+sealed class UiEvent : Event {
+    data class OnUpdateContactClick(
         val id: String,
         val image: String,
         val name: String,
@@ -27,8 +21,7 @@ sealed class UiEvent() : Event {
     ) : UiEvent()
 }
 
-sealed class DataEvent() : Event {
-    object SuccessContactUpdated : DataEvent()
+sealed class DataEvent : Event {
     data class SuccessContactRequested(val model: ContactsModel) : DataEvent()
 }
 

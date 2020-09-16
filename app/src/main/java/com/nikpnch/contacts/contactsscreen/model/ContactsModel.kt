@@ -4,7 +4,7 @@ import com.nikpnch.contacts.Item
 
 data class ContactsModel(
     val id: String,
-    val avatar: String,
+    val imagePath: String,
     val name: String,
     val phoneNumber: String
 ) : Item

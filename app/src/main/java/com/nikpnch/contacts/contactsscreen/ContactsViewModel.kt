@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen.ui
+package com.nikpnch.contacts.contactsscreen
 
 import android.util.Log
 import com.nikpnch.contacts.base.BaseViewModel
@@ -26,7 +26,7 @@ class ContactsViewModel(private val interactor: ContactsInteractor) : BaseViewMo
                             processUiEvent(DataEvent.SuccessContactRequested(it))
                         },
                         {
-                            Log.d("debug:", "FAIL DataEvent.RequestContacts")
+                            Log.d("debug", "FAIL DataEvent.RequestContacts")
                         }
                     )
             }

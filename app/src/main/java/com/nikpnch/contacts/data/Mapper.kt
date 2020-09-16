@@ -4,13 +4,13 @@ import com.nikpnch.contacts.contactsscreen.ui.model.ContactsModel
 import com.nikpnch.contacts.data.local.ContactEntity
 
 fun ContactEntity.mapToUiModel(): ContactsModel {
-    return ContactsModel(id, image, name, phoneNumber)
+    return ContactsModel(id, imagePath, name, phoneNumber)
 }
 
 fun ContactsModel.mapToEntityModel(): ContactEntity {
     return ContactEntity(
         id = id,
-        image = avatar,
+        imagePath = imagePath,
         name = name,
         phoneNumber = phoneNumber
     )

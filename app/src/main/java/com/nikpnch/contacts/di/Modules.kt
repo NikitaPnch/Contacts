@@ -1,12 +1,13 @@
 package com.nikpnch.contacts.di
 
 import androidx.room.Room
-import com.nikpnch.contacts.addcontactscreen.ui.AddContactsViewModel
-import com.nikpnch.contacts.contactsscreen.ui.ContactsViewModel
+import com.nikpnch.contacts.addcontactscreen.AddContactsViewModel
+import com.nikpnch.contacts.contactsscreen.ContactsViewModel
 import com.nikpnch.contacts.data.ContactsInteractor
 import com.nikpnch.contacts.data.ContactsRepository
 import com.nikpnch.contacts.data.ContactsRepositoryImpl
 import com.nikpnch.contacts.data.local.ContactsDatabase
+import com.nikpnch.contacts.editcontactscreen.EditContactViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -43,6 +44,10 @@ val contactsModule = module {
 
     viewModel {
         AddContactsViewModel(get())
+    }
+
+    viewModel {
+        EditContactViewModel(get())
     }
 }
 

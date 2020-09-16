@@ -2,7 +2,7 @@ package com.nikpnch.contacts
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nikpnch.contacts.contactsscreen.ui.ContactsScreen
+import com.nikpnch.contacts.contactsscreen.ContactsScreen
 import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named

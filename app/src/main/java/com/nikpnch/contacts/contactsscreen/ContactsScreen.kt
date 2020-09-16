@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen.ui
+package com.nikpnch.contacts.contactsscreen
 
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen

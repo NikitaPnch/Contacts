@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen.ui
+package com.nikpnch.contacts.contactsscreen
 
 import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
@@ -19,7 +19,7 @@ fun contactsAdapterDelegate(onClick: (Int) -> Unit): AdapterDelegate<List<Item>>
             tvName.text = item.name
             tvPhoneNumber.text = item.phoneNumber
             Glide.with(containerView)
-                .load(item.avatar)
+                .load(item.imagePath)
                 .circleCrop()
                 .placeholder(R.drawable.ic_baseline_image_24)
                 .into(ivAvatar)

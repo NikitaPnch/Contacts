@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.contactsscreen.ui
+package com.nikpnch.contacts.contactsscreen
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.nikpnch.contacts.R
-import com.nikpnch.contacts.addcontactscreen.ui.AddContactScreen
-import com.nikpnch.contacts.addcontactscreen.ui.EditContactScreen
+import com.nikpnch.contacts.addcontactscreen.AddContactScreen
 import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
+import com.nikpnch.contacts.editcontactscreen.EditContactScreen
 import com.nikpnch.contacts.setAdapterAndCleanupOnDetachFromWindow
 import com.nikpnch.contacts.setData
 import kotlinx.android.synthetic.main.fragment_contacts.*
@@ -29,7 +29,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     private val router: Router by inject(named(CONTACTS_QUALIFIER))
     private val viewModel: ContactsViewModel by viewModel()
     private val adapter = ListDelegationAdapter(
-        contactsAdapterDelegate() {
+        contactsAdapterDelegate {
             val contactsList = viewModel.viewState.value!!.contactsList
             router.navigateTo(EditContactScreen(contactsList[it].id))
         }

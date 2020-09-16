@@ -9,8 +9,8 @@ import com.nikpnch.contacts.di.CONTACTS_TABLE
 data class ContactEntity(
     @PrimaryKey
     val id: String,
-    @ColumnInfo(name = "image")
-    val image: String,
+    @ColumnInfo(name = "imagePath")
+    val imagePath: String,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "phoneNumber")
