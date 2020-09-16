@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="input_name_and_surname">Введите имя и фамилию</string>
+    <string name="input_phone_number">Введите номер телефона</string>
+    <string name="save">Сохранить</string>
+    <string name="pick_image">Выберите изображение</string>
+</resources>
