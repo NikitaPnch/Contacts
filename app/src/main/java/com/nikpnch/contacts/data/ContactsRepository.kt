@@ -1,7 +1,7 @@
 package com.nikpnch.contacts.data
 
 import com.nikpnch.contacts.data.local.ContactEntity
-import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.model.ContactsModel
 import io.reactivex.Single
 
 interface ContactsRepository {

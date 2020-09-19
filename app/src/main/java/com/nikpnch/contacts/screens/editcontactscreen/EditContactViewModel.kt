@@ -4,7 +4,7 @@ import android.util.Log
 import com.nikpnch.contacts.base.BaseViewModel
 import com.nikpnch.contacts.base.Event
 import com.nikpnch.contacts.data.ContactsInteractor
-import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.model.ContactsModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -60,7 +60,7 @@ class EditContactViewModel(private val interactor: ContactsInteractor) :
             }
 
             is DataEvent.SuccessContactRequested -> {
-                return previousState.copy(STATUS.CONTENT, event.model)
+                return previousState.copy(status = STATUS.CONTENT, contactModel = event.model)
             }
         }
         return null

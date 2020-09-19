@@ -1,27 +1,31 @@
 package com.nikpnch.contacts
 
 import android.Manifest
-import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 
 const val RESULT_LOAD_IMAGE = 1
 const val REQUEST_PERMISSION = 2
 const val IMAGE_MIME_TYPE = "image/*"
 
-fun Context.checkPermissionForReadExternalStorage(): Boolean {
+fun Fragment.checkPermissionForReadExternalStorage(): Boolean {
     val result = ContextCompat.checkSelfPermission(
-        this,
+        requireContext(),
         Manifest.permission.READ_EXTERNAL_STORAGE
     )
     return result == PackageManager.PERMISSION_GRANTED
 }
 
-fun Activity.requestPermissionForReadExternalStorage() {
-    ActivityCompat.requestPermissions(
-        this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-        REQUEST_PERMISSION
-    )
+fun Fragment.requestPermissionForReadExternalStorage() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_PERMISSION)
+    } else {
+        ActivityCompat.requestPermissions(
+            requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+            REQUEST_PERMISSION
+        )
+    }
 }

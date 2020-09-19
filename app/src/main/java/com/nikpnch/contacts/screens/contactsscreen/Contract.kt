@@ -1,15 +1,18 @@
 package com.nikpnch.contacts.screens.contactsscreen
 
 import com.nikpnch.contacts.base.Event
-import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.model.ContactsModel
 
 data class ViewState(
     val status: STATUS,
     val contactsList: List<ContactsModel>
 )
 
-sealed class DataEvent() : Event {
-    object RequestContacts : DataEvent()
+sealed class UiEvent : Event {
+    object RequestContacts : UiEvent()
+}
+
+sealed class DataEvent : Event {
     data class SuccessContactRequested(val listContactsModel: List<ContactsModel>) : DataEvent()
 }
 

@@ -2,6 +2,7 @@ package com.nikpnch.contacts.screens.editcontactscreen
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -45,10 +46,10 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
         viewModel.processUiEvent(UiEvent.OnRequestContact(selectedId!!))
 
         ivAvatar.setOnClickListener {
-            if (requireContext().checkPermissionForReadExternalStorage()) {
+            if (checkPermissionForReadExternalStorage()) {
                 pickImage()
             } else {
-                requireActivity().requestPermissionForReadExternalStorage()
+                requestPermissionForReadExternalStorage()
             }
         }
 
@@ -61,7 +62,7 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
                     etPhoneNumber.text.toString()
                 )
             )
-            router.navigateTo(ContactsScreen())
+            router.backTo(ContactsScreen())
         }
     }
 
@@ -97,6 +98,19 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
             .circleCrop()
             .placeholder(R.drawable.ic_baseline_image_24)
             .into(ivAvatar)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                pickImage()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -1,4 +1,4 @@
-package com.nikpnch.contacts.screens.contactsscreen.ui.model
+package com.nikpnch.contacts.screens.contactsscreen.model
 
 import com.nikpnch.contacts.Item
 

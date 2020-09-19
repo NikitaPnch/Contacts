@@ -5,7 +5,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateLayoutContainer
 import com.nikpnch.contacts.Item
 import com.nikpnch.contacts.R
-import com.nikpnch.contacts.screens.contactsscreen.ui.model.ContactsModel
+import com.nikpnch.contacts.screens.contactsscreen.model.ContactsModel
 import kotlinx.android.synthetic.main.item_contact.*
 
 fun contactsAdapterDelegate(onClick: (Int) -> Unit): AdapterDelegate<List<Item>> =

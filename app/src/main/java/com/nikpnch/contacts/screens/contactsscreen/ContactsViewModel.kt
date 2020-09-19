@@ -10,13 +10,9 @@ import io.reactivex.schedulers.Schedulers
 class ContactsViewModel(private val interactor: ContactsInteractor) : BaseViewModel<ViewState>() {
     override fun initialViewState(): ViewState = ViewState(STATUS.LOAD, emptyList())
 
-    init {
-        processDataEvent(DataEvent.RequestContacts)
-    }
-
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
-            is DataEvent.RequestContacts -> {
+            is UiEvent.RequestContacts -> {
                 interactor
                     .getAllContacts()
                     .subscribeOn(Schedulers.io())

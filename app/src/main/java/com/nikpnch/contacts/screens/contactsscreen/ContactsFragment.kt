@@ -39,6 +39,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
+        viewModel.processUiEvent(UiEvent.RequestContacts)
         rvContacts.layoutManager = LinearLayoutManager(requireContext())
         rvContacts.setAdapterAndCleanupOnDetachFromWindow(adapter)
         fabAddContact.setOnClickListener {
