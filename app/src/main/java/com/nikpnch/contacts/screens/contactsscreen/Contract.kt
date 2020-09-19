@@ -10,6 +10,8 @@ data class ViewState(
 
 sealed class UiEvent : Event {
     object RequestContacts : UiEvent()
+    object OpenAddContactScreen : UiEvent()
+    data class OpenEditScreen(val index: Int) : UiEvent()
 }
 
 sealed class DataEvent : Event {

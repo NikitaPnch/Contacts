@@ -39,15 +39,15 @@ val contactsModule = module {
     }
 
     viewModel {
-        ContactsViewModel(get())
+        ContactsViewModel(get(), get(named(CONTACTS_QUALIFIER)))
     }
 
     viewModel {
-        AddContactsViewModel(get())
+        AddContactsViewModel(get(), get(named(CONTACTS_QUALIFIER)))
     }
 
-    viewModel {
-        EditContactViewModel(get())
+    viewModel { (id: String) ->
+        EditContactViewModel(get(), get(named(CONTACTS_QUALIFIER)), id)
     }
 }
 

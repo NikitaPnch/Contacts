@@ -7,16 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.nikpnch.contacts.R
-import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
-import com.nikpnch.contacts.screens.addcontactscreen.AddContactScreen
-import com.nikpnch.contacts.screens.editcontactscreen.EditContactScreen
 import com.nikpnch.contacts.setAdapterAndCleanupOnDetachFromWindow
 import com.nikpnch.contacts.setData
 import kotlinx.android.synthetic.main.fragment_contacts.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.qualifier.named
-import ru.terrakok.cicerone.Router
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
 
@@ -26,12 +20,10 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
         }
     }
 
-    private val router: Router by inject(named(CONTACTS_QUALIFIER))
     private val viewModel: ContactsViewModel by viewModel()
     private val adapter = ListDelegationAdapter(
         contactsAdapterDelegate {
-            val contactsList = viewModel.viewState.value!!.contactsList
-            router.navigateTo(EditContactScreen(contactsList[it].id))
+            viewModel.processUiEvent(UiEvent.OpenEditScreen(it))
         }
     )
 
@@ -43,7 +35,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
         rvContacts.layoutManager = LinearLayoutManager(requireContext())
         rvContacts.setAdapterAndCleanupOnDetachFromWindow(adapter)
         fabAddContact.setOnClickListener {
-            router.navigateTo(AddContactScreen())
+            viewModel.processUiEvent(UiEvent.OpenAddContactScreen)
         }
     }
 

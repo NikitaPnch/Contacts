@@ -9,17 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.nikpnch.contacts.*
-import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
-import com.nikpnch.contacts.screens.contactsscreen.ContactsScreen
 import kotlinx.android.synthetic.main.fragment_add_contact.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.qualifier.named
-import ru.terrakok.cicerone.Router
+import org.koin.core.parameter.parametersOf
 
 class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
-
-    private val router: Router by inject(named(CONTACTS_QUALIFIER))
 
     companion object {
         private const val SELECTED_ID = "SELECTED_ID"
@@ -34,16 +28,16 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
     }
 
     private var currentImagePath = ""
-    private val viewModel: EditContactViewModel by viewModel()
+    private val viewModel: EditContactViewModel by viewModel {
+        parametersOf(arguments?.getString(SELECTED_ID) ?: "")
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
 
-        val selectedId = arguments?.getString(SELECTED_ID)
-
-        viewModel.processUiEvent(UiEvent.OnRequestContact(selectedId!!))
+        viewModel.processUiEvent(UiEvent.OnRequestContact)
 
         ivAvatar.setOnClickListener {
             if (checkPermissionForReadExternalStorage()) {
@@ -56,13 +50,11 @@ class EditContactFragment : Fragment(R.layout.fragment_add_contact) {
         fabDone.setOnClickListener {
             viewModel.processUiEvent(
                 UiEvent.OnUpdateContactClick(
-                    selectedId,
                     currentImagePath,
                     etName.text.toString(),
                     etPhoneNumber.text.toString()
                 )
             )
-            router.backTo(ContactsScreen())
         }
     }
 

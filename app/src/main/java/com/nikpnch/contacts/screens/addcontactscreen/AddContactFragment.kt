@@ -8,17 +8,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.nikpnch.contacts.*
-import com.nikpnch.contacts.di.CONTACTS_QUALIFIER
-import com.nikpnch.contacts.screens.contactsscreen.ContactsScreen
 import kotlinx.android.synthetic.main.fragment_add_contact.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.qualifier.named
-import ru.terrakok.cicerone.Router
 
 class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
-
-    private val router: Router by inject(named(CONTACTS_QUALIFIER))
 
     companion object {
         fun newInstance(): AddContactFragment {
@@ -50,7 +43,6 @@ class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
                     etPhoneNumber.text.toString()
                 )
             )
-            router.backTo(ContactsScreen())
         }
     }
 

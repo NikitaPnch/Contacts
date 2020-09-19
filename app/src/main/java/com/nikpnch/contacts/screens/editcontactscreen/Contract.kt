@@ -10,15 +10,12 @@ data class ViewState(
 
 sealed class UiEvent : Event {
     data class OnUpdateContactClick(
-        val id: String,
         val image: String,
         val name: String,
         val phoneNumber: String
     ) : UiEvent()
 
-    data class OnRequestContact(
-        val id: String
-    ) : UiEvent()
+    object OnRequestContact : UiEvent()
 }
 
 sealed class DataEvent : Event {

@@ -4,12 +4,14 @@ import android.util.Log
 import com.nikpnch.contacts.base.BaseViewModel
 import com.nikpnch.contacts.base.Event
 import com.nikpnch.contacts.data.ContactsInteractor
+import com.nikpnch.contacts.screens.contactsscreen.ContactsScreen
 import com.nikpnch.contacts.screens.contactsscreen.model.ContactsModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import ru.terrakok.cicerone.Router
 import java.util.*
 
-class AddContactsViewModel(private val interactor: ContactsInteractor) :
+class AddContactsViewModel(private val interactor: ContactsInteractor, private val router: Router) :
     BaseViewModel<ViewState>() {
     override fun initialViewState(): ViewState = ViewState(STATUS.LOAD, null)
 
@@ -29,10 +31,7 @@ class AddContactsViewModel(private val interactor: ContactsInteractor) :
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         {
-                            Log.d(
-                                "debug",
-                                "SUCCESS UiEvent.OnSaveContactClick"
-                            )
+                            router.backTo(ContactsScreen())
                         },
                         {
                             Log.d(
