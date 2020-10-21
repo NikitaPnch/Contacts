@@ -7,8 +7,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
-const val RESULT_LOAD_IMAGE = 1
+const val REQUEST_LOAD_IMAGE = 1
 const val REQUEST_PERMISSION = 2
+const val REQUEST_TAKE_PHOTO = 3
+const val DATE_PATTERN = "yyyyMMdd_HHmmss"
+const val FILES_AUTHORITY = "com.example.android.fileprovider"
 const val IMAGE_MIME_TYPE = "image/*"
 
 fun Fragment.checkPermissionForReadExternalStorage(): Boolean {
